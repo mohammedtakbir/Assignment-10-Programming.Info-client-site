@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
 
 
-    
+
     const handleLogIn = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -57,7 +57,7 @@ const Login = () => {
                                 placeholder='your Email address' />
                         </div>
                         <div>
-                            <button type='submit' className='bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Log In</button>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Log In</button>
                         </div>
                     </form>
                 </div>
