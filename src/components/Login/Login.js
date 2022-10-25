@@ -4,9 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { userLogIn, GoogleSignIn } = useContext(AuthContext);
-
-
+    const { userLogIn, GoogleSignIn, githubSignIn } = useContext(AuthContext);
 
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -22,7 +20,7 @@ const Login = () => {
                 console.log(error)
             })
     };
-    //* Sign in with google
+    //* SignIn with google
     const handleGoogleSignIn = () => {
         GoogleSignIn()
             .then(result => {
@@ -31,8 +29,17 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
             })
-    }
-
+    };
+    //* SignIn with Github
+    const handleGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    };
 
     return (
         <div>
@@ -40,7 +47,7 @@ const Login = () => {
             <hr className='w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
                 <div>
-                    <button className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-[300px]'>
+                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-[300px]'>
                         <span className='text-2xl'><FaGithub /></span>
                         <span className='font-medium ml-3'>Continue with Github</span>
                     </button>
