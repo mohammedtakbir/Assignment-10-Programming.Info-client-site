@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const { userLogIn, GoogleSignIn } = useContext(AuthContext);
 
 
 
@@ -11,10 +13,24 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
 
-
-
+        userLogIn(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    };
+    //* Sign in with google
+    const handleGoogleSignIn = () => {
+        GoogleSignIn()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
 
@@ -28,7 +44,7 @@ const Login = () => {
                         <span className='text-2xl'><FaGithub /></span>
                         <span className='font-medium ml-3'>Continue with Github</span>
                     </button>
-                    <button className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-[300px]'>
+                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-[300px]'>
                         <span className='text-2xl'><FcGoogle /></span>
                         <span className='font-medium ml-3'>Continue with Google</span>
                     </button>
@@ -52,7 +68,7 @@ const Login = () => {
                             <input
                                 className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="password"
-                                name="password" 
+                                name="password"
                                 id=""
                                 placeholder='your Email address' />
                         </div>

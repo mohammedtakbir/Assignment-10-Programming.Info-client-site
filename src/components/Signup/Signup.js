@@ -1,6 +1,9 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
+    const { userSignUp } = useContext(AuthContext);
 
 
 
@@ -12,7 +15,14 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        
+        userSignUp(email, password)
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+
     }
 
 
@@ -57,7 +67,8 @@ const Signup = () => {
                                 type="email"
                                 name="email"
                                 id=""
-                                placeholder='your Email address' />
+                                placeholder='your Email address'
+                                required />
                         </div>
                         <div className='mb-5'>
                             <label
@@ -68,7 +79,8 @@ const Signup = () => {
                                 type="password"
                                 name="password"
                                 id=""
-                                placeholder='your Email address' />
+                                placeholder='your Email address'
+                                required />
                         </div>
                         <div>
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Sign Up</button>
