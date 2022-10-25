@@ -1,14 +1,32 @@
 import React from 'react';
 
 const Signup = () => {
+
+
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        
+    }
+
+
+
+
+
     return (
         <div>
             <h3 className='text-center mt-14 font-bold mb-6'>Sign up and start learning</h3>
             <hr className='w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
                 <div>
-                    <form>
-                    <div className='mb-4'>
+                    <form onSubmit={handleSignUp}>
+                        <div className='mb-4'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Full Name</label>

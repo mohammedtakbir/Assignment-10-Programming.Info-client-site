@@ -45,7 +45,7 @@ const Login = () => {
                                 id=""
                                 placeholder='your Email address' />
                         </div>
-                        <div className='mb-4'>
+                        <div className='mb-5'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Password</label>

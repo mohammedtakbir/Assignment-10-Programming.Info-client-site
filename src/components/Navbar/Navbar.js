@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
+    const {user} = useContext(AuthContext);
+    
     return (
         <div className='bg-slate-300 py-4'>
             <nav className='container mx-auto flex justify-between items-center'>
