@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const CourseCards = ({ course }) => {
-    const { author, description, id, others_info, title, image } = course;
+    const { author, description, id, others_info, title, image, price } = course;
     
     return (
         <Link to={`/course-details/${id}`}>
@@ -28,6 +28,7 @@ const CourseCards = ({ course }) => {
                         </small>
                         <small className='ml-1 text-gray-500'>({others_info?.students})</small>
                     </p>
+                    <p className='font-medium mt-1'>${price}</p>
                 </div>
             </div>
         </Link>

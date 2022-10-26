@@ -6,9 +6,10 @@ import { HiCheckCircle } from "react-icons/hi2";
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { author, description, id, others_info, title, image, details } = courseDetails;
+    
+    const { author, description, id, others_info, title, image, details, price } = courseDetails;
     const { list1, list2, list3, list4, list5, list6, list7 } = details;
-    console.log(courseDetails)
+    
     return (
         <div className='max-w-screen-md mx-auto mt-12 shadow-xl p-5 rounded-lg'>
             <div className='flex justify-between items-center gap-5 '>
@@ -30,6 +31,7 @@ const CourseDetails = () => {
                         </small>
                         <small className='ml-1 text-gray-500'>({others_info?.students})</small>
                     </p>
+                    <p className='font-medium mt-1'>${price}</p>
                 </div>
             </div>
             <div className='mt-8'>
@@ -68,7 +70,7 @@ const CourseDetails = () => {
                 <hr />
             </div>
             <div className='mt-5'>
-                <Link>
+                <Link to={`/checkout/${id}`}>
                     <button className='bg-slate-500 duration-200 rounded-md hover:bg-slate-600 text-white py-3 px-4'>Get Premium Access</button>
                 </Link>
             </div>

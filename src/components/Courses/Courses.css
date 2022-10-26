@@ -1,5 +1,5 @@
 .custom-grid{
     display: grid;
-    grid-template-columns: 15% 93%;
+    grid-template-columns: 15% 83%;
     gap: 2%;
 }
