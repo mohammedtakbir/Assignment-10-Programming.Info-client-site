@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 const LeftSideNav = ({ courses }) => {
 
     return (
-        <div>
+        <div className='shadow-xl p-4 pb-1 rounded-md'>
             {
-                courses.map(course => <p className='my-3 text-lg '>
+                courses.map(course => <p key={course.id} className='mb-5 text-xl '>
                     <NavLink
                         to={`/course-details/${course.id}`}
-                        className='font-medium hover:font-bold block'
+                        className='font-medium hover:font-bold block border-b border-b-gray-300'
                         key={course.id}>
                         {course.name}</NavLink>
                 </p>)
