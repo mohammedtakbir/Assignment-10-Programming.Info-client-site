@@ -1,12 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
     const { userSignUp, updateUserProfile } = useContext(AuthContext);
     const [error, serError] = useState('');
+    const location = useLocation();
+    console.log(location)
 
 
     const handleSignUp = (e) => {
