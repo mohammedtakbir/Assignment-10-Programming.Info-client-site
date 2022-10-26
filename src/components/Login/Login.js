@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
@@ -55,9 +56,9 @@ const Login = () => {
                         <span className='text-2xl'><FcGoogle /></span>
                         <span className='font-medium ml-3'>Continue with Google</span>
                     </button>
-                    <p className='text-center text-lg font-bold mt-3'>or</p>
+
                     <form onSubmit={handleLogIn}>
-                        <div className='mb-4'>
+                        <div className='mb-4 mt-3'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Email</label>
@@ -83,6 +84,14 @@ const Login = () => {
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Log In</button>
                         </div>
                     </form>
+                    <p className='text-center mt-3'>
+                        <span>or </span>
+                        <button className='text-blue-500'>Forgot Password</button>
+                    </p>
+                    <p className='text-center mt-4'>
+                        <span>Don't have an account? </span>
+                        <Link to='/signup' className='underline text-blue-500'>Sign Up</Link>
+                    </p>
                 </div>
             </div>
         </div>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
-    const { userSignUp } = useContext(AuthContext);
+    const { userSignUp, updateUserProfile } = useContext(AuthContext);
 
 
 
@@ -16,18 +17,24 @@ const Signup = () => {
         const password = form.password.value;
 
         userSignUp(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                handleUpdateUserProfile(name, photoURL);
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
-    }
-
-
-
-
+    };
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    };
 
     return (
         <div>
@@ -86,8 +93,19 @@ const Signup = () => {
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Sign Up</button>
                         </div>
                     </form>
+                    <p className='max-w-[300px] mt-4'>
+                        <small>By signing up, you agree to our
+                            <Link className='text-blue-500 underline ml-1'>Terms of Use</Link> and
+                            <Link className='text-blue-500 underline ml-1'>Privacy Policy</Link>.
+                        </small>
+                    </p>
                 </div>
             </div>
+            <hr className='w-[400px] mx-auto my-5' />
+            <p className='text-center mt-4'>
+                <span>Already have an account? </span>
+                <Link to='/login' className='underline text-blue-500'>Log In</Link>
+            </p>
         </div>
     );
 };
