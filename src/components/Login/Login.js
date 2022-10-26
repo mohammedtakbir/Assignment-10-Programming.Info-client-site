@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState('');
     const { userLogIn, GoogleSignIn, githubSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -19,10 +21,12 @@ const Login = () => {
         userLogIn(email, password)
             .then(result => {
                 navigate(from);
+                form.reset();
                 console.log(result.user)
             })
             .catch(error => {
-                console.log(error)
+                setError(error.message)
+                console.error(error)
             })
     };
     //* SignIn with google
@@ -30,6 +34,7 @@ const Login = () => {
         GoogleSignIn()
             .then(result => {
                 navigate(from);
+                setError('');
                 console.log(result.user)
             })
             .catch(error => {
@@ -51,14 +56,14 @@ const Login = () => {
     return (
         <div>
             <h3 className='text-center mt-14 font-bold mb-6'>Log in to your Programming.Info account</h3>
-            <hr className='w-[400px] mx-auto' />
+            <hr className='max-w-[500px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div>
-                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-[300px]'>
+                <div className='w-[400px] shadow-xl p-5 rounded-md'>
+                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-full'>
                         <span className='text-2xl'><FaGithub /></span>
                         <span className='font-medium ml-3'>Continue with Github</span>
                     </button>
-                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-[300px]'>
+                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-full'>
                         <span className='text-2xl'><FcGoogle /></span>
                         <span className='font-medium ml-3'>Continue with Google</span>
                     </button>
@@ -69,25 +74,26 @@ const Login = () => {
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Email</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="email"
                                 name="email"
                                 id=""
                                 placeholder='your Email address' />
                         </div>
-                        <div className='mb-5'>
+                        <div className='mb-2'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Password</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="password"
                                 name="password"
                                 id=""
                                 placeholder='your Email address' />
                         </div>
-                        <div>
-                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Log In</button>
+                        <p className='text-red-500'>{error}</p>
+                        <div className='mt-5'>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-lg font-medium'>Log In</button>
                         </div>
                     </form>
                     <p className='text-center mt-3'>

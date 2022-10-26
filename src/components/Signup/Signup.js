@@ -1,11 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
     const { userSignUp, updateUserProfile } = useContext(AuthContext);
-
+    const [error, serError] = useState('');
 
 
     const handleSignUp = (e) => {
@@ -19,9 +20,11 @@ const Signup = () => {
         userSignUp(email, password)
             .then(result => {
                 handleUpdateUserProfile(name, photoURL);
+                form.reset();
                 console.log(result.user)
             })
             .catch(error => {
+                serError(error.message)
                 console.error(error)
             })
 
@@ -39,16 +42,16 @@ const Signup = () => {
     return (
         <div>
             <h3 className='text-center mt-14 font-bold mb-6'>Sign up and start learning</h3>
-            <hr className='w-[400px] mx-auto' />
+            <hr className='max-w-[500px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div>
+                <div className='w-[400px] shadow-xl p-5 pb-6 rounded-md'>
                     <form onSubmit={handleSignUp}>
                         <div className='mb-4'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Full Name</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="text"
                                 name="name"
                                 id=""
@@ -59,7 +62,7 @@ const Signup = () => {
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>PhotoURL</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="text"
                                 name="photoURL"
                                 id=""
@@ -70,30 +73,31 @@ const Signup = () => {
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Email</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="email"
                                 name="email"
                                 id=""
                                 placeholder='your Email address'
                                 required />
                         </div>
-                        <div className='mb-5'>
+                        <div className='mb-2'>
                             <label
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Password</label>
                             <input
-                                className='border w-[300px] border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="password"
                                 name="password"
                                 id=""
                                 placeholder='your Email address'
                                 required />
                         </div>
-                        <div>
-                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-[300px] text-lg font-medium'>Sign Up</button>
+                        <p className='text-red-500'>{error}</p>
+                        <div className='mt-3'>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-lg font-medium'>Sign Up</button>
                         </div>
                     </form>
-                    <p className='max-w-[300px] mt-4'>
+                    <p className='mt-4'>
                         <small>By signing up, you agree to our
                             <Link className='text-blue-500 underline ml-1'>Terms of Use</Link> and
                             <Link className='text-blue-500 underline ml-1'>Privacy Policy</Link>.
@@ -101,7 +105,7 @@ const Signup = () => {
                     </p>
                 </div>
             </div>
-            <hr className='w-[400px] mx-auto my-5' />
+            <hr className='max-w-[500px] mx-auto mb-5 mt-8' />
             <p className='text-center mt-4'>
                 <span>Already have an account? </span>
                 <Link to='/login' className='underline text-blue-500'>Log In</Link>
