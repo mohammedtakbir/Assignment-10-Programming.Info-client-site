@@ -18,7 +18,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className='bg-slate-300 py-4'>
+        <div className='bg-slate-100 py-4'>
             <nav className='container mx-auto flex justify-between items-center'>
                 <p>
                     <Link to='/' className='text-2xl font-medium'>

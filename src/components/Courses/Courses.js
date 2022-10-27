@@ -8,7 +8,7 @@ const Courses = () => {
     const courses = useLoaderData();
 
     return (
-        <div className='mt-10'>
+        <div className='mt-10 container mx-auto'>
             <h2 className='text-3xl font-medium mb-10'>A broad selection of courses</h2>
             <div className='custom-grid'>
                 <div>
