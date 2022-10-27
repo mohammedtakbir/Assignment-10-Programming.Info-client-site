@@ -16,7 +16,7 @@ const CourseDetails = () => {
     return (
         <div className='max-w-screen-md md:mx-auto md:mt-10 mt-6 shadow-xl p-5 rounded-lg mx-3 relative'>
             <div className='sm:flex justify-between items-center gap-5 '>
-                <img src={image} className='sm:w-[300px] w-full sm:h-[250px] h-[300px] border rounded-lg' alt="" />
+                <img src={image} className='sm:w-[300px] w-full sm:h-[250px] border rounded-lg' alt="" />
                 <div className='sm:mt-0 mt-3'>
                     <h2 className='text-2xl font-medium mb-2'>{title}</h2>
                     <p className='mb-2'>{description}</p>

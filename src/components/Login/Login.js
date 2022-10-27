@@ -8,7 +8,8 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { userLogIn, GoogleSignIn, githubSignIn } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const { userLogIn, GoogleSignIn, githubSignIn, userForgotPassword } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -57,6 +58,26 @@ const Login = () => {
             })
     };
 
+    const handleGetEmail = (e) => {
+        setEmail(e.target.value);
+    };
+
+    //* Forget password
+    const handleForgotPassword = () => {
+        if(!email){
+            setError('You have to insert email first.')
+            return;
+        }
+        userForgotPassword(email)
+        .then(() => {
+            toast.success('Password reset email sent on your email address!')
+        })
+        .catch(error => {
+            setError(error);
+            console.log(error);
+        })
+    }
+
     return (
         <div>
             <h3 className='text-center md:mt-14 mt-7 font-bold mb-6 sm:mx-0 mx-3'>Log in to your Programming.Info account</h3>
@@ -78,6 +99,7 @@ const Login = () => {
                                 htmlFor=""
                                 className='block text-lg font-medium mb-1'>Email</label>
                             <input
+                                onBlur={handleGetEmail}
                                 className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
                                 type="email"
                                 name="email"
@@ -102,7 +124,7 @@ const Login = () => {
                     </form>
                     <p className='text-center mt-3'>
                         <span>or </span>
-                        <button className='text-blue-500'>Forgot Password</button>
+                        <button onClick={handleForgotPassword} className='text-blue-500'>Forgot Password</button>
                     </p>
                     <p className='text-center mt-4'>
                         <span>Don't have an account? </span>
