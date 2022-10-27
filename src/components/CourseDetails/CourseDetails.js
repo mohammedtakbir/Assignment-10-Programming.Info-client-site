@@ -18,10 +18,10 @@ const CourseDetails = () => {
             <div className='sm:flex justify-between items-center gap-5 '>
                 <img src={image} className='sm:w-[300px] w-full sm:h-[250px] border rounded-lg' alt="" />
                 <div className='sm:mt-0 mt-3'>
-                    <h2 className='text-2xl font-medium mb-2'>{title}</h2>
+                    <h2 className='text-2xl font-medium mb-4'>{title}</h2>
                     <p className='mb-2'>{description}</p>
                     <p>
-                        <small>{author}</small>
+                        <small className='text-gray-600'>{author}</small>
                     </p>
                     <p>
                         <small className='mr-1'>{others_info?.rating?.number}</small>
