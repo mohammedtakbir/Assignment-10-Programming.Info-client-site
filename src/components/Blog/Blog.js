@@ -2,10 +2,10 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='mt-10 max-w-screen-lg mx-auto shadow-xl p-7'>
-            <h2 className='text-center mb-7 text-4xl font-medium'>Interview Questions & Answers</h2>
+        <div className='md:mt-10 mt-2 max-w-screen-lg md:mx-auto shadow-xl md:p-7 p-3 mx-3 rounded-md'>
+            <h2 className='text-center mb-7 md:text-4xl text-3xl font-medium'>Interview Questions & Answers</h2>
             <div>
-                <h2 className='font-medium text-2xl mb-3'>What is CORS?</h2>
+                <h2 className='font-medium md:text-2xl text-xl mb-3'>What is CORS?</h2>
                 <p className='mb-3'><strong>1. </strong>
                     <strong>Cross-Origin Resource Sharing (CORS)</strong> is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.</p>
                 <p className="mb-3"><strong>2. </strong>
@@ -14,7 +14,7 @@ const Blog = () => {
                     <strong>CORS</strong> also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.</p>
             </div>
             <div className='mt-7'>
-                <h2 className='font-medium text-2xl mb-3'>Why are you using firebase?</h2>
+                <h2 className='font-medium md:text-2xl text-xl mb-3'>Why are you using firebase?</h2>
                 <p className='mb-3'><strong>1. </strong>
                     Google Firebase is an application development platform that allows developers to create iOS, Android, and Web apps.</p>
                 <p className='mb-3'><strong>2. </strong>
@@ -23,7 +23,7 @@ const Blog = () => {
                     Google Firebase offers many features that pitch it as the go-to backend development tool for web and mobile apps. It reduces development workload and time. And it's a perfect prototyping tool. Firebase is simple, lightweight, friendly, and industrially recognized.</p>
             </div>
             <div className='mt-7'>
-                <h2 className='font-medium text-2xl mb-3'>What other options do you have to implement authentication?</h2>
+                <h2 className='font-medium md:text-2xl text-xl mb-3'>What other options do you have to implement authentication?</h2>
                 <p className='mb-3 font-medium text-lg'>Top alternatives to Firebase Authentication</p>
                 <span className='mr-4 font-medium'>i. Auth0</span>
                 <span className='mr-4 font-medium'>ii. Passport</span>
@@ -34,14 +34,14 @@ const Blog = () => {
                 <span className='mr-4 font-medium'>vii. JSON Web Token</span>
             </div>
             <div className='mt-7'>
-                <h2 className='font-medium text-2xl mb-3'>How does the private route work?</h2>
+                <h2 className='font-medium md:text-2xl text-xl mb-3'>How does the private route work?</h2>
                 <p className='mb-3'><strong>1. </strong>
                     The private route component is <strong>used to protect selected pages in a React app from unauthenticated users</strong>.</p>
                 <p className='mb-3'><strong>2. </strong>
                     The private route component is similar to the public route, the only change is that <strong>redirect URL and authenticate condition</strong>. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).</p>
             </div>
             <div className='mt-7'>
-                <h2 className='font-medium text-2xl mb-3'> What is Node? How does Node work?</h2>
+                <h2 className='font-medium md:text-2xl text-xl mb-3'> What is Node? How does Node work?</h2>
                 <p className='mb-3'><strong>1. </strong>
                     Node. js is <strong>a single-threaded, open-source, cross-platform runtime environment for building fast and scalable server-side and networking applications</strong>.
                 </p>

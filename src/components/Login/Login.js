@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -22,6 +23,7 @@ const Login = () => {
             .then(result => {
                 navigate(from);
                 form.reset();
+                toast.success('Log in successfully!');
                 console.log(result.user)
             })
             .catch(error => {
@@ -35,6 +37,7 @@ const Login = () => {
             .then(result => {
                 navigate(from);
                 setError('');
+                toast.success('Log in successfully!');
                 console.log(result.user)
             })
             .catch(error => {
@@ -46,6 +49,7 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 navigate(from);
+                toast.success('Log in successfully!');
                 console.log(result.user)
             })
             .catch(error => {
@@ -55,10 +59,10 @@ const Login = () => {
 
     return (
         <div>
-            <h3 className='text-center mt-14 font-bold mb-6'>Log in to your Programming.Info account</h3>
-            <hr className='max-w-[500px] mx-auto' />
+            <h3 className='text-center md:mt-14 mt-7 font-bold mb-6 sm:mx-0 mx-3'>Log in to your Programming.Info account</h3>
+            <hr className='sm:w-[500px] w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div className='w-[400px] shadow-xl p-5 rounded-md'>
+                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md'>
                     <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-full'>
                         <span className='text-2xl'><FaGithub /></span>
                         <span className='font-medium ml-3'>Continue with Github</span>

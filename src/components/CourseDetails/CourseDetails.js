@@ -11,10 +11,10 @@ const CourseDetails = () => {
     const { list1, list2, list3, list4, list5, list6, list7 } = details;
     
     return (
-        <div className='max-w-screen-md mx-auto mt-12 shadow-xl p-5 rounded-lg'>
-            <div className='flex justify-between items-center gap-5 '>
-                <img src={image} className='w-[300px] h-[250px] border rounded-lg' alt="" />
-                <div>
+        <div className='max-w-screen-md md:mx-auto md:mt-10 mt-6 shadow-xl p-5 rounded-lg mx-3'>
+            <div className='sm:flex justify-between items-center gap-5 '>
+                <img src={image} className='sm:w-[300px] w-full sm:h-[250px] h-[300px] border rounded-lg' alt="" />
+                <div className='sm:mt-0 mt-3'>
                     <h2 className='text-2xl font-medium mb-2'>{title}</h2>
                     <p className='mb-2'>{description}</p>
                     <p>
@@ -71,7 +71,7 @@ const CourseDetails = () => {
             </div>
             <div className='mt-5'>
                 <Link to={`/checkout/${id}`}>
-                    <button className='bg-slate-500 duration-200 rounded-md hover:bg-slate-600 text-white py-3 px-4'>Get Premium Access</button>
+                    <button className='bg-slate-500 duration-200 rounded-md hover:bg-slate-600 text-white py-2 px-3'>Get Premium Access</button>
                 </Link>
             </div>
         </div>

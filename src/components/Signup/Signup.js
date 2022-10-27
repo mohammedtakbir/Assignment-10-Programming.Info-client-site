@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
     const { userSignUp, updateUserProfile } = useContext(AuthContext);
     const [error, serError] = useState('');
-    const location = useLocation();
-    console.log(location)
+    const navigate = useNavigate();
 
 
     const handleSignUp = (e) => {
@@ -23,6 +23,8 @@ const Signup = () => {
             .then(result => {
                 handleUpdateUserProfile(name, photoURL);
                 form.reset();
+                toast.success('Sign up successfully!');
+                navigate('/');
                 console.log(result.user)
             })
             .catch(error => {
@@ -43,10 +45,10 @@ const Signup = () => {
 
     return (
         <div>
-            <h3 className='text-center mt-14 font-bold mb-6'>Sign up and start learning</h3>
-            <hr className='max-w-[500px] mx-auto' />
+            <h3 className='text-center md:mt-14 mt-7 font-bold mb-6'>Sign up and start learning</h3>
+            <hr className='sm:w-[500px] w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div className='w-[400px] shadow-xl p-5 pb-6 rounded-md'>
+                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 pb-6 rounded-md'>
                     <form onSubmit={handleSignUp}>
                         <div className='mb-4'>
                             <label

@@ -5,8 +5,8 @@ import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
         <div className='bg-slate-50 mt-14'>
-            <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="px-4 md:pt-16 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div className="grid md:gap-10 gap-5 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="">
                         <Link
                             to="/"
@@ -160,7 +160,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row container mx-auto md:mx-0 mx-2">
+            <div className="flex flex-col-reverse justify-between pt-5 md:pb-10 pb-6 border-t lg:flex-row container md:mx-auto mx-4">
                 <p className="text-sm text-gray-600">
                     © Copyright 2022 Lorem Inc. All rights reserved.
                 </p>

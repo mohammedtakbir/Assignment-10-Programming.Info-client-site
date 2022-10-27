@@ -9,12 +9,12 @@ const Courses = () => {
 
     return (
         <div className='mt-10 container mx-auto'>
-            <h2 className='text-3xl font-medium mb-10'>A broad selection of courses</h2>
-            <div className='custom-grid'>
+            <h2 className='md:text-3xl text-2xl font-medium md:mb-10 mb-6 sm:mx-0 mx-3'>A broad selection of courses</h2>
+            <div className='custom-grid relative'>
                 <div>
                     <LeftSideNav courses={courses} />
                 </div>
-                <div className='grid grid-cols-2 gap-9'>
+                <div className='grid xl:grid-cols-2 gap-9'>
                     {
                         courses.map(course => <CourseCards
                             key={course.id}

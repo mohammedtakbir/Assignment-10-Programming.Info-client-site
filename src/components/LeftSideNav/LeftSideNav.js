@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const LeftSideNav = ({ courses }) => {
 
     return (
-        <div className='shadow-xl p-4 pb-1 rounded-md'>
+        <div className='shadow-xl p-4 pb-1 rounded-md sm:mx-0 mx-3 md:sticky top-0'>
             {
                 courses.map(course => <p key={course.id} className='mb-5 text-xl '>
                     <NavLink
