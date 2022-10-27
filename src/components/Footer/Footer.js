@@ -28,7 +28,7 @@ const Footer = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="space-y-2 text-sm flex items-center text-left flex-col">
+                    <div className="space-y-2 text-sm flex md:items-center flex-col">
                         <p className="text-base font-bold tracking-wide text-gray-900">
                             Courses
                         </p>
@@ -160,7 +160,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row container mx-auto">
+            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row container mx-auto md:mx-0 mx-2">
                 <p className="text-sm text-gray-600">
                     © Copyright 2022 Lorem Inc. All rights reserved.
                 </p>
