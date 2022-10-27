@@ -86,11 +86,11 @@ const Login = () => {
                 <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md'>
                     <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-full'>
                         <span className='text-2xl'><FaGithub /></span>
-                        <span className='font-medium ml-3'>Continue with Github</span>
+                        <span className='font-medium md:ml-3 ml-2'>Continue with Github</span>
                     </button>
                     <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-full'>
                         <span className='text-2xl'><FcGoogle /></span>
-                        <span className='font-medium ml-3'>Continue with Google</span>
+                        <span className='font-medium md:ml-3 ml-2'>Continue with Google</span>
                     </button>
 
                     <form onSubmit={handleLogIn}>
