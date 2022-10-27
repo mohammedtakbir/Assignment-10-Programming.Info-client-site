@@ -24,14 +24,14 @@ const Blog = () => {
             </div>
             <div className='mt-7'>
                 <h2 className='font-medium md:text-2xl text-xl mb-3'>What other options do you have to implement authentication?</h2>
-                <p className='mb-3 font-medium text-lg'>Top alternatives to Firebase Authentication</p>
-                <span className='mr-4 font-medium'>i. Auth0</span>
-                <span className='mr-4 font-medium'>ii. Passport</span>
-                <span className='mr-4 font-medium'>iii. Keycloak</span>
-                <span className='mr-4 font-medium'>iv. Okta</span>
-                <span className='mr-4 font-medium'>v. Amazon Cognito</span>
-                <span className='mr-4 font-medium'>vi. MongoDB</span>
-                <span className='mr-4 font-medium'>vii. JSON Web Token</span>
+                <p className='mb-3 font-medium md:text-lg'>Top alternatives to Firebase Authentication</p>
+                <span className='mr-4'>i. Auth0</span>
+                <span className='mr-4'>ii. Passport</span>
+                <span className='mr-4'>iii. Keycloak</span>
+                <span className='mr-4'>iv. Okta</span>
+                <span className='mr-4'>v. Amazon Cognito</span>
+                <span className='mr-4'>vi. MongoDB</span>
+                <span>vii. JSON Web Token</span>
             </div>
             <div className='mt-7'>
                 <h2 className='font-medium md:text-2xl text-xl mb-3'>How does the private route work?</h2>

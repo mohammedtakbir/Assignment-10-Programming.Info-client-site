@@ -28,7 +28,7 @@ const Footer = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="space-y-2 text-sm flex md:items-center flex-col">
+                    <div className="space-y-2 text-sm flex lg:items-center flex-col">
                         <p className="text-base font-bold tracking-wide text-gray-900">
                             Courses
                         </p>
