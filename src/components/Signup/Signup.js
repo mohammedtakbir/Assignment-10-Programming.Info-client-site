@@ -33,17 +33,16 @@ const Signup = () => {
             .then(photoData => {
                 userSignUp(email, password)
                     .then(result => {
+                        setLoading(false);
                         handleUpdateUserProfile(name, photoData.data.display_url);
                         form.reset();
                         toast.success('Sign up successfully!');
                         navigate('/');
-                        console.log(result.user)
                     })
                     .catch(error => {
-                        serError(error.message)
-                        console.error(error)
+                        setLoading(false);
+                        serError(error.message);
                     })
-                setLoading(false);
             })
 
         const handleUpdateUserProfile = (name, photoURL) => {
@@ -149,7 +148,7 @@ const Signup = () => {
                                 placeholder='your Email address'
                                 required />
                         </div>
-                        <p className='text-red-500'>{error}</p>
+                        <p className='text-red-500 text-sm'>{error}</p>
                         <div className='mt-3'>
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>
                                 {loading ? 'Loading...' : 'Sign Up'}

@@ -9,12 +9,14 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
     const { userLogIn, GoogleSignIn, githubSignIn, userForgotPassword } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
     const handleLogIn = (e) => {
+        setLoading(true);
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
@@ -22,14 +24,15 @@ const Login = () => {
 
         userLogIn(email, password)
             .then(result => {
+                setLoading(false);
                 navigate(from);
                 form.reset();
                 toast.success('Log in successfully!');
                 console.log(result.user)
             })
             .catch(error => {
+                setLoading(false);
                 setError(error.message)
-                console.error(error)
             })
     };
     //* SignIn with google
@@ -39,7 +42,6 @@ const Login = () => {
                 navigate(from);
                 setError('');
                 toast.success('Log in successfully!');
-                console.log(result.user)
             })
             .catch(error => {
                 console.log(error)
@@ -51,7 +53,6 @@ const Login = () => {
             .then(result => {
                 navigate(from);
                 toast.success('Log in successfully!');
-                console.log(result.user)
             })
             .catch(error => {
                 console.log(error)
@@ -106,7 +107,9 @@ const Login = () => {
                                 type="email"
                                 name="email"
                                 id=""
-                                placeholder='your Email address' />
+                                placeholder='Email Address'
+                                required
+                            />
                         </div>
                         <div className='mb-2'>
                             <label
@@ -117,11 +120,15 @@ const Login = () => {
                                 type="password"
                                 name="password"
                                 id=""
-                                placeholder='your Email address' />
+                                placeholder='Password' 
+                                required
+                            />
                         </div>
-                        <p className='text-red-500'>{error}</p>
+                        <p className='text-red-500 text-sm'>{error}</p>
                         <div className='mt-5'>
-                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>Log In</button>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>
+                                {loading ? 'Loading...' : 'Log In'}
+                            </button>
                         </div>
                     </form>
                     <p className='text-center mt-3 text-sm'>
