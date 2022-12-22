@@ -1,17 +1,28 @@
 import React from 'react';
 import { FaStarHalfAlt } from 'react-icons/fa';
 import { HiStar } from 'react-icons/hi2';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { HiCheckCircle } from "react-icons/hi2";
 import { HiFolderDownload } from "react-icons/hi";
 import ReactToPdf from 'react-to-pdf'
+import Loading from '../Loading/Loading';
+import { useQuery } from '@tanstack/react-query';
 
 const CourseDetails = () => {
     const ref = React.createRef();
-    const courseDetails = useLoaderData();
+    const courseDetailsId = useParams();
+
+    const { data: courseDetails = [], isLoading } = useQuery({
+        queryKey: ['course-details', courseDetailsId.id],
+        queryFn: () => fetch(`https://programming-info.vercel.app/course-details/${courseDetailsId.id}`)
+            .then(res => res.json())
+    })
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     const { author, description, id, others_info, title, image, details, price } = courseDetails;
-    const { list1, list2, list3, list4, list5, list6, list7 } = details;
 
     return (
         <div className='max-w-screen-md md:mx-auto md:mt-10 mt-6 shadow-xl p-5 rounded-lg mx-3 relative'>
@@ -40,36 +51,37 @@ const CourseDetails = () => {
             <div ref={ref} className='mt-8'>
                 <h2 className='font-bold text-[30px] mb-3'>What you'll learn</h2>
                 <hr />
-                <div className='mt-3'>
-                    <li className={`list-none flex ${list1 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list1 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list1}</span>
-                    </li>
-                    <li className={`list-none flex ${list2 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list2 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list2}</span>
-                    </li>
-                    <li className={`list-none flex ${list3 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list3 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list3}</span>
-                    </li>
-                    <li className={`list-none flex ${list4 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list4 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list4}</span>
-                    </li>
-                    <li className={`list-none flex ${list5 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list5 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list5}</span>
-                    </li>
-                    <li className={`list-none flex ${list6 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list6 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list6}</span>
-                    </li>
-                    <li className={`list-none flex ${list7 ? 'mb-4' : 'mb-0'}`}>
-                        <span>{list7 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
-                        <span>{list7}</span>
-                    </li>
-                </div>
+                {details === undefined ? <Loading /> :
+                    <div className='mt-3'>
+                        <li className={`list-none flex ${details?.list1 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list1 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list1}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list2 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list2 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list2}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list3 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list3 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list3}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list4 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list4 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list4}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list5 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list5 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list5}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list6 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list6 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list6}</span>
+                        </li>
+                        <li className={`list-none flex ${details?.list7 ? 'mb-4' : 'mb-0'}`}>
+                            <span>{details?.list7 ? <HiCheckCircle className='inline text-2xl mr-3' /> : ''}</span>
+                            <span>{details?.list7}</span>
+                        </li>
+                    </div>}
                 <hr />
             </div>
             <div className='flex'>

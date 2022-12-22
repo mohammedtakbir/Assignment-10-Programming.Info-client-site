@@ -1,11 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import CourseCards from '../CourseCards/CourseCards';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import Loading from '../Loading/Loading';
 import './Courses.css'
 
 const Courses = () => {
-    const courses = useLoaderData();
+
+    const { data: courses = [], isLoading } = useQuery({
+        queryKey: ['courses'],
+        queryFn: () => fetch(`https://programming-info.vercel.app/courses`)
+            .then(res => res.json())
+    })
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <div className='mt-10 container mx-auto'>
