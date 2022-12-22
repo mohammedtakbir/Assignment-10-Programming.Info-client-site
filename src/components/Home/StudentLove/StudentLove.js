@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PeopleLove = () => {
+const StudentLove = () => {
     return (
         <div className='container mx-auto sm:pt-24 sm:pb-12 pb-2 pt-12 text-center'>
             <div className='sm:max-w-[650px] mx-auto'>
@@ -21,4 +21,4 @@ const PeopleLove = () => {
     );
 };
 
-export default PeopleLove;
+export default StudentLove;
