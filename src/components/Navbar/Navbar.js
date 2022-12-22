@@ -9,7 +9,6 @@ import { HiXMark } from "react-icons/hi2";
 
 const Navbar = () => {
     const { user, userSignOut } = useContext(AuthContext);
-    const [theme, setTheme] = useState(true);
     const [open, setOpen] = useState(false);
 
     const handleSignOut = () => {
@@ -20,7 +19,7 @@ const Navbar = () => {
             })
     };
 
-    return ( 
+    return (
         <div className='bg-slate-100 py-6'>
             <nav className='sm:container sm:mx-auto flex justify-between items-center relative mx-2'>
                 <p className='w-[350px]'>
@@ -53,36 +52,41 @@ const Navbar = () => {
                             return isActive ? { textDecoration: 'underLine' } : undefined
                         }} to='/blog'>Blog</NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
-
-                        {theme ?
-                            <button onClick={() => setTheme(!theme)}>Light</button> :
-                            <button onClick={() => setTheme(!theme)}>Dark</button>
-                        }
-
-                    </li>
-
                     {user ?
                         <>
                             <li onClick={() => setOpen(!open)} className='lg:ml-9 lg:my-0 my-3 text-lg'>
                                 <button onClick={handleSignOut}>Sign Out</button>
                             </li>
-                            <li>
-                                <p className='lg:ml-6 lg:my-0 my-3 text-lg'>{user?.displayName ?
-                                    user?.displayName :
-                                    'Not Defined'}
-                                </p>
-                            </li>
-                            <li className='lg:ml-4'>
-                                <img title={user?.displayName ?
-                                    user?.displayName :
-                                    'Not Defined'
-                                }
-                                    className='w-[30px] rounded-full cursor-pointer'
-                                    src={user?.photoURL ?
-                                        user?.photoURL :
-                                        `https://img.freepik.com/premium-vector/portrait-young-man-with-beard-hair-style-male-avatar-vector-illustration_266660-423.jpg?w=2000`}
-                                    alt="" />
+                            <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                                <div className="dropdown md:dropdown-end">
+                                    <label tabIndex={0}>
+                                        <img title={user?.displayName ?
+                                            user?.displayName :
+                                            'Not Defined'
+                                        }
+                                            className='w-[30px] rounded-full cursor-pointer'
+                                            src={user?.photoURL ?
+                                                user?.photoURL :
+                                                `https://img.freepik.com/premium-vector/portrait-young-man-with-beard-hair-style-male-avatar-vector-illustration_266660-423.jpg?w=2000`}
+                                            alt="" />
+                                    </label>
+                                    <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-56 mt-4">
+                                        <img title={user?.displayName ?
+                                            user?.displayName :
+                                            'Not Defined'
+                                        }
+                                            className='w-[50px] rounded-full cursor-pointer mx-auto mt-3'
+                                            src={user?.photoURL ?
+                                                user?.photoURL :
+                                                `https://img.freepik.com/premium-vector/portrait-young-man-with-beard-hair-style-male-avatar-vector-illustration_266660-423.jpg?w=2000`}
+                                            alt="" />
+                                        <p className='text-sm mt-3 text-center font-medium'>{user?.displayName}</p>
+                                        <p className='text-sm mb-2 text-center'>{user?.email}</p>
+                                        <li onClick={() => setOpen(!open)}>
+                                            <button onClick={handleSignOut} className='justify-center p-0 mb-2 text-sm'>Sign Out</button>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </> :
                         <>
