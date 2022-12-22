@@ -86,10 +86,9 @@ const Signup = () => {
     return (
         <div>
             <h3 className='text-center md:mt-14 mt-7 font-bold mb-6'>Sign up and start learning</h3>
-            <hr className='sm:w-[500px] w-[400px] mx-auto' />
+            <hr className='sm:max-w-[500px] max-w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 pb-6 rounded-md border border-gray-100'>
-
+                <div className='sm:max-w-[400px] max-w-[300px] shadow-xl p-5 pb-6 rounded-md border border-gray-100'>
                     <div className='pb-5'>
                         <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-sm w-full'>
                             <span className='text-2xl'><FaGithub /></span>

@@ -42,6 +42,7 @@ const Login = () => {
                 navigate(from);
                 setError('');
                 toast.success('Log in successfully!');
+                console.log(result.user)
             })
             .catch(error => {
                 console.log(error)
@@ -53,6 +54,7 @@ const Login = () => {
             .then(result => {
                 navigate(from);
                 toast.success('Log in successfully!');
+                console.log(result.user)
             })
             .catch(error => {
                 console.log(error)
@@ -82,9 +84,9 @@ const Login = () => {
     return (
         <div>
             <h3 className='text-center md:mt-14 mt-7 font-bold mb-6 sm:mx-0 mx-3'>Log in to your Programming.Info account</h3>
-            <hr className='sm:w-[500px] w-[400px] mx-auto' />
+            <hr className='sm:max-w-[500px] max-w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md border border-gray-100'>
+                <div className='sm:w-[350px] w-[300px] shadow-xl p-5 rounded-md border border-gray-100'>
                     <div className='pb-5'>
                         <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-sm w-full'>
                             <span className='text-2xl'><FaGithub /></span>
@@ -127,7 +129,7 @@ const Login = () => {
                         <p className='text-red-500 text-sm'>{error}</p>
                         <div className='mt-5'>
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>
-                                {loading ? 'Loading...' : 'Log In'}
+                                {loading ? 'Loading' : 'Log In'}
                             </button>
                         </div>
                     </form>

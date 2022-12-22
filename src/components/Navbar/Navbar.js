@@ -19,13 +19,12 @@ const Navbar = () => {
             })
     };
 
-    console.log(user)
 
     return (
         <div className='bg-slate-100 py-6'>
             <nav className='sm:container sm:mx-auto flex justify-between items-center relative mx-2'>
                 <p className='w-[350px]'>
-                    <Link to='/' className='text-2xl font-medium flex'>
+                    <Link to='/' className='sm:text-2xl text-xl font-medium flex'>
                         <span className='mr-2'>
                             <img className='sm:w-[35px] w-[30px] inline' src={logo} alt="" />
                         </span>
@@ -34,29 +33,29 @@ const Navbar = () => {
                 </p>
                 <ul className={`lg:flex lg:static lg:justify-end absolute lg:bg-transparent bg-slate-400 z-10 w-full lg:p-0 p-5 lg:rounded-none rounded-lg
                 ${open ? 'top-[60px]' : 'top-[-400px]'}`}>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                         <NavLink className='w-full block' onClick={() => setOpen(!open)} style={({ isActive }) => {
                             return isActive ? { textDecoration: 'underLine' } : undefined
                         }} to='/home'>Home</NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                         <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
                             return isActive ? { textDecoration: 'underLine' } : undefined
                         }} to='/courses'>Courses</NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                         <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
                             return isActive ? { textDecoration: 'underLine' } : undefined
                         }} to='/faq'>FAQ</NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                         <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
                             return isActive ? { textDecoration: 'underLine' } : undefined
                         }} to='/blog'>Blog</NavLink>
                     </li>
                     {user ?
                         <>
-                            <li className='lg:ml-6 lg:my-0 my-3 text-lg'>
+                            <li className='lg:ml-6 lg:my-0 my-3 text-base'>
                                 <div className="dropdown md:dropdown-end">
                                     <label tabIndex={0}>
                                         <img title={user?.displayName ?
@@ -89,12 +88,12 @@ const Navbar = () => {
                             </li>
                         </> :
                         <>
-                            <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                            <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                                 <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
                                     return isActive ? { textDecoration: 'underLine' } : undefined
                                 }} to='/login'>Log in</NavLink>
                             </li>
-                            <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                            <li className='lg:ml-9 lg:my-0 my-3 text-base'>
                                 <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
                                     return isActive ? { textDecoration: 'underLine' } : undefined
                                 }} to='/signup'>Sign up</NavLink>
