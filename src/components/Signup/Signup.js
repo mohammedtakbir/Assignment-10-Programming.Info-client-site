@@ -53,9 +53,9 @@ const Signup = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>Full Name</label>
+                                className='block text-sm font-medium mb-1'>Full Name</label>
                             <input
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="text"
                                 name="name"
                                 id=""
@@ -64,9 +64,9 @@ const Signup = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>PhotoURL</label>
+                                className='block text-sm font-medium mb-1'>PhotoURL</label>
                             <input
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="text"
                                 name="photoURL"
                                 id=""
@@ -75,9 +75,9 @@ const Signup = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>Email</label>
+                                className='block text-sm font-medium mb-1'>Email</label>
                             <input
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="email"
                                 name="email"
                                 id=""
@@ -87,9 +87,9 @@ const Signup = () => {
                         <div className='mb-2'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>Password</label>
+                                className='block text-sm font-medium mb-1'>Password</label>
                             <input
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="password"
                                 name="password"
                                 id=""
@@ -98,7 +98,7 @@ const Signup = () => {
                         </div>
                         <p className='text-red-500'>{error}</p>
                         <div className='mt-3'>
-                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-lg font-medium'>Sign Up</button>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>Sign Up</button>
                         </div>
                     </form>
                     <p className='mt-4'>
@@ -110,7 +110,7 @@ const Signup = () => {
                 </div>
             </div>
             <hr className='max-w-[500px] mx-auto mb-5 mt-8' />
-            <p className='text-center mt-4'>
+            <p className='text-center mt-4 text-sm'>
                 <span>Already have an account? </span>
                 <Link to='/login' className='underline text-blue-500'>Log In</Link>
             </p>

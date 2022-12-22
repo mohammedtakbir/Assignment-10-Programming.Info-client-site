@@ -84,11 +84,11 @@ const Login = () => {
             <hr className='sm:w-[500px] w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
                 <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md'>
-                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-lg w-full'>
+                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-sm w-full'>
                         <span className='text-2xl'><FaGithub /></span>
                         <span className='font-medium md:ml-3 ml-2'>Continue with Github</span>
                     </button>
-                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-lg w-full'>
+                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-sm w-full'>
                         <span className='text-2xl'><FcGoogle /></span>
                         <span className='font-medium md:ml-3 ml-2'>Continue with Google</span>
                     </button>
@@ -97,10 +97,10 @@ const Login = () => {
                         <div className='mb-4 mt-3'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>Email</label>
+                                className='block text-sm font-medium mb-1'>Email</label>
                             <input
                                 onBlur={handleGetEmail}
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="email"
                                 name="email"
                                 id=""
@@ -109,9 +109,9 @@ const Login = () => {
                         <div className='mb-2'>
                             <label
                                 htmlFor=""
-                                className='block text-lg font-medium mb-1'>Password</label>
+                                className='block text-sm font-medium mb-1'>Password</label>
                             <input
-                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-lg'
+                                className='border w-full border-[#8c99ab] py-2 px-3 rounded-md text-sm'
                                 type="password"
                                 name="password"
                                 id=""
@@ -119,14 +119,14 @@ const Login = () => {
                         </div>
                         <p className='text-red-500'>{error}</p>
                         <div className='mt-5'>
-                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-lg font-medium'>Log In</button>
+                            <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>Log In</button>
                         </div>
                     </form>
-                    <p className='text-center mt-3'>
+                    <p className='text-center mt-3 text-sm'>
                         <span>or </span>
                         <button onClick={handleForgotPassword} className='text-blue-500'>Forgot Password</button>
                     </p>
-                    <p className='text-center mt-4'>
+                    <p className='text-center mt-4 text-sm'>
                         <span>Don't have an account? </span>
                         <Link to='/signup' className='underline text-blue-500'>Sign Up</Link>
                     </p>
