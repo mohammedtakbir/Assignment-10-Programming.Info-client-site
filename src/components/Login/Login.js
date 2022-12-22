@@ -64,18 +64,18 @@ const Login = () => {
 
     //* Forget password
     const handleForgotPassword = () => {
-        if(!email){
+        if (!email) {
             setError('You have to insert email first.')
             return;
         }
         userForgotPassword(email)
-        .then(() => {
-            toast.success('Password reset email sent on your email address!')
-        })
-        .catch(error => {
-            setError(error);
-            console.log(error);
-        })
+            .then(() => {
+                toast.success('Password reset email sent on your email address!')
+            })
+            .catch(error => {
+                setError(error);
+                console.log(error);
+            })
     }
 
     return (
@@ -83,15 +83,17 @@ const Login = () => {
             <h3 className='text-center md:mt-14 mt-7 font-bold mb-6 sm:mx-0 mx-3'>Log in to your Programming.Info account</h3>
             <hr className='sm:w-[500px] w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
-                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md'>
-                    <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-sm w-full'>
-                        <span className='text-2xl'><FaGithub /></span>
-                        <span className='font-medium md:ml-3 ml-2'>Continue with Github</span>
-                    </button>
-                    <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-sm w-full'>
-                        <span className='text-2xl'><FcGoogle /></span>
-                        <span className='font-medium md:ml-3 ml-2'>Continue with Google</span>
-                    </button>
+                <div className='sm:w-[400px] w-[300px] shadow-xl p-5 rounded-md border border-gray-100'>
+                    <div className='pb-5'>
+                        <button onClick={handleGithubSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 mb-3 rounded-md text-sm w-full'>
+                            <span className='text-2xl'><FaGithub /></span>
+                            <span className='font-medium md:ml-3 ml-2'>Continue with Github</span>
+                        </button>
+                        <button onClick={handleGoogleSignIn} className='flex items-center bg-slate-100 hover:bg-slate-200 py-3 px-4 rounded-md text-sm w-full'>
+                            <span className='text-2xl'><FcGoogle /></span>
+                            <span className='font-medium md:ml-3 ml-2'>Continue with Google</span>
+                        </button>
+                    </div>
 
                     <form onSubmit={handleLogIn}>
                         <div className='mb-4 mt-3'>

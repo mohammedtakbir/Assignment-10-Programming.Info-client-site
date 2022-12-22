@@ -19,6 +19,8 @@ const Navbar = () => {
             })
     };
 
+    console.log(user)
+
     return (
         <div className='bg-slate-100 py-6'>
             <nav className='sm:container sm:mx-auto flex justify-between items-center relative mx-2'>
@@ -57,7 +59,7 @@ const Navbar = () => {
                             <li onClick={() => setOpen(!open)} className='lg:ml-9 lg:my-0 my-3 text-lg'>
                                 <button onClick={handleSignOut}>Sign Out</button>
                             </li>
-                            <li className='lg:ml-9 lg:my-0 my-3 text-lg'>
+                            <li className='lg:ml-6 lg:my-0 my-3 text-lg'>
                                 <div className="dropdown md:dropdown-end">
                                     <label tabIndex={0}>
                                         <img title={user?.displayName ?
