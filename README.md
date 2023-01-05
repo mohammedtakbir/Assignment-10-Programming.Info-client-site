@@ -5,13 +5,17 @@ Hosted in Firebase -> [Programming.info](https://programming-info-36e8e.web.app/
 
 ## Overall Features
 * Single page application.
-* We use Firebase for secure User Authentication.
-* We produce high quality content about programming languages.
-* You can learn most popular programming languages such as Python, Swift, Java, PHP, C, C++ etc. from this website.
-* Answering CORS, Firebase and Node related question in Blog page.
+* Learn the most popular programming languages such as Swift, Java, C, C++, Python, etc.
+* On the courses page, all courses are available for the user. A user can learn about course details by clicking a course card.
+* The courses page also has a sidebar where a user can learn about course details.
+* Without signup or login, the user cannot get access the courses because All courses are protected by the private route.
+* Implement react-pdf to download pdf files on the browser and server.
+* Authenticate with Google, Github, Email, and Password using Firebase.
 
 ## Tools and Technologies
 Front-end: HTML, CSS, JavaScript, React
+
+Back-end: Node.js, Express.js, Vercel
 
 ## For user Authentication
 [Firebase](https://firebase.google.com/)
