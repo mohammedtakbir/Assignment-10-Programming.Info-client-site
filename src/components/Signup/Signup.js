@@ -85,7 +85,7 @@ const Signup = () => {
 
     return (
         <div>
-            <h3 className='text-center md:mt-14 mt-7 font-bold mb-6'>Sign up and start learning</h3>
+            <h3 className='text-center md:mt-14 mt-7 font-bold mb-6'>Register and start learning</h3>
             <hr className='sm:max-w-[500px] max-w-[400px] mx-auto' />
             <div className='flex justify-center mt-7'>
                 <div className='sm:max-w-[400px] max-w-[300px] shadow-xl p-5 pb-6 rounded-md border border-gray-100'>
@@ -150,7 +150,7 @@ const Signup = () => {
                         <p className='text-red-500 text-sm'>{error}</p>
                         <div className='mt-3'>
                             <button type='submit' className='bg-slate-200 hover:bg-slate-300 py-3 px-4 rounded-md w-full text-sm font-medium'>
-                                {loading ? 'Loading...' : 'Sign Up'}
+                                {loading ? 'Loading...' : 'Register'}
                             </button>
                         </div>
                     </form>
@@ -165,7 +165,7 @@ const Signup = () => {
             <hr className='max-w-[500px] mx-auto mb-5 mt-8' />
             <p className='text-center mt-4 text-sm'>
                 <span>Already have an account? </span>
-                <Link to='/login' className='underline text-blue-500'>Log In</Link>
+                <Link to='/login' className='underline text-blue-500'>Sign In</Link>
             </p>
         </div>
     );

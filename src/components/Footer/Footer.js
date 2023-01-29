@@ -5,8 +5,8 @@ import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
         <>
-            <footer className="bg-slate-50 mt-14">
-                <div className="container p-6 mx-auto">
+            <footer className="bg-slate-50 mt-14 md:pt-7 pt-4">
+                <div className="max-w-[1400px] p-6 mx-auto">
                     <div className="lg:flex">
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
@@ -32,7 +32,7 @@ const Footer = () => {
                                         Learners around the world are launching new careers, advancing in their fields, and enriching their lives.
                                     </p>
                                 </div>
-                                <p className="max-w-sm mt-2 text-gray-500 text-sm">Join with us:</p>
+                                <p className="max-w-sm mt-2 text-gray-500 text-sm mb-1">Join with us:</p>
 
                                 <div className="flex mt-0 -mx-2">
                                     <Link to='/'

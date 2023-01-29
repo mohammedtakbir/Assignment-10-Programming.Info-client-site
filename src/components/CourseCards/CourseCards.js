@@ -9,7 +9,7 @@ const CourseCards = ({ course }) => {
     
     return (
         <Link to={`/course-details/${id}`}>
-            <div className='min-h-full sm:flex justify-between items-center gap-5 shadow-xl p-5 rounded-lg duration-300 hover:shadow-2xl md:mx-0 mx-3'>
+            <div className='min-h-full sm:flex justify-between items-center gap-5 shadow-xl border border-gray-100 p-5 rounded-lg duration-300 hover:shadow-2xl md:mx-0 mx-3'>
                 <img src={image} className='sm:w-[200px] w-full h-[200px] border rounded-lg' alt="" />
                 <div className='sm:mt-0 mt-3'>
                     <h2 className='text-xl font-medium mb-4'>{title}</h2>

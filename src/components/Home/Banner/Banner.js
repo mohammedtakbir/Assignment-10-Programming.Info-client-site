@@ -19,10 +19,10 @@ const Banner = () => {
                                 </h2>
                                 <p className="max-w-xl mb-4 text-base text-white md:text-lg">
                                     Programming.info Business is trusted by 5K+ companies around the world.
-                                    <Link className='text-blue-500 underline'> Find out what we can do for yours.</Link>
+                                    {/* <Link className='text-blue-500 underline'> Find out what we can do for yours.</Link> */}
                                 </p>
                                 <Link
-                                    to="/"
+                                    to="/courses"
                                     aria-label=""
                                     className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 underline text-blue-400 text-xl"
                                 >

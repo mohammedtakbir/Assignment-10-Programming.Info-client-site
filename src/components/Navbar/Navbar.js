@@ -19,10 +19,9 @@ const Navbar = () => {
             })
     };
 
-
     return (
-        <div className='bg-slate-100 py-6'>
-            <nav className='sm:container sm:mx-auto flex justify-between items-center relative mx-2'>
+        <div className='bg-slate-50 py-3 shadow-lg sticky top-0 z-50'>
+            <nav className='sm:max-w-[1400px] sm:mx-auto flex justify-between items-center relative mx-2'>
                 <p className='w-[350px]'>
                     <Link to='/' className='sm:text-2xl text-xl font-medium flex'>
                         <span className='mr-2'>
@@ -31,28 +30,53 @@ const Navbar = () => {
                         <span>Programming.Info</span>
                     </Link>
                 </p>
-                <ul className={`lg:flex lg:static lg:justify-end absolute lg:bg-transparent bg-slate-400 z-10 w-full lg:p-0 p-5 lg:rounded-none rounded-lg
-                ${open ? 'top-[60px]' : 'top-[-400px]'}`}>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                        <NavLink className='w-full block' onClick={() => setOpen(!open)} style={({ isActive }) => {
-                            return isActive ? { textDecoration: 'underLine' } : undefined
-                        }} to='/home'>Home</NavLink>
+                <ul className={`lg:flex lg:static lg:justify-end items-center absolute lg:bg-transparent bg-slate-400 z-10 w-full lg:p-0 p-5 lg:rounded-none rounded-lg
+                ${open ? 'top-[50px]' : 'top-[-400px]'}`}>
+                    <li className='lg:my-0 my-3 text-base'>
+                        <NavLink
+                            className='w-full block'
+                            onClick={() => setOpen(!open)}
+                            style={({ isActive }) => {
+                                return isActive ? { textDecoration: 'underLine' } : undefined
+                            }}
+                            to='/home'
+                        >
+                            Home
+                        </NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                        <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
-                            return isActive ? { textDecoration: 'underLine' } : undefined
-                        }} to='/courses'>Courses</NavLink>
+                    <li className='lg:ml-6 lg:my-0 my-3 text-base'>
+                        <NavLink
+                            onClick={() => setOpen(!open)}
+                            style={({ isActive }) => {
+                                return isActive ? { textDecoration: 'underLine' } : undefined
+                            }}
+                            to='/courses'
+                        >
+                            Courses
+                        </NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                        <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
-                            return isActive ? { textDecoration: 'underLine' } : undefined
-                        }} to='/faq'>FAQ</NavLink>
+                    <li className='lg:ml-6 lg:my-0 my-3 text-base'>
+                        <NavLink
+                            onClick={() => setOpen(!open)}
+                            style={({ isActive }) => {
+                                return isActive ? { textDecoration: 'underLine' } : undefined
+                            }}
+                            to='/faq'
+                        >
+                            FAQ
+                        </NavLink>
                     </li>
-                    <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                        <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
-                            return isActive ? { textDecoration: 'underLine' } : undefined
-                        }} to='/blog'>Blog</NavLink>
-                    </li>
+                    {/* <li className='lg:ml-9 lg:my-0 my-3 text-base'>
+                        <NavLink
+                            onClick={() => setOpen(!open)}
+                            style={({ isActive }) => {
+                                return isActive ? { textDecoration: 'underLine' } : undefined
+                            }}
+                            to='/blog'
+                        >
+                            Blog
+                        </NavLink>
+                    </li> */}
                     {user ?
                         <>
                             <li className='lg:ml-6 lg:my-0 my-3 text-base'>
@@ -88,19 +112,29 @@ const Navbar = () => {
                             </li>
                         </> :
                         <>
-                            <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                                <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
-                                    return isActive ? { textDecoration: 'underLine' } : undefined
-                                }} to='/login'>Log in</NavLink>
+                            <li className='lg:ml-6 lg:my-0 my-3 lg:mb-0 mb-5 text-base inline-block'>
+                                <NavLink
+                                    className='border border-gray-900 px-3 py-2 hover:bg-gray-200 text-black'
+                                    onClick={() => setOpen(!open)}
+                                    to='/login'
+                                >
+                                    Sign In
+                                </NavLink>
                             </li>
-                            <li className='lg:ml-9 lg:my-0 my-3 text-base'>
-                                <NavLink onClick={() => setOpen(!open)} style={({ isActive }) => {
-                                    return isActive ? { textDecoration: 'underLine' } : undefined
-                                }} to='/signup'>Sign up</NavLink>
+                            <li className='lg:ml-5 lg:my-0 my-3 text-base block'>
+                                <NavLink
+                                    className='border border-gray-900 px-3 py-2 bg-black text-white'
+                                    onClick={() => setOpen(!open)} 
+                                    /* style={({ isActive }) => {
+                                        return isActive ? { textDecoration: 'underLine' } : undefined
+                                    }} */
+                                    to='/signup'
+                                >
+                                    Register
+                                </NavLink>
                             </li>
                         </>
                     }
-
                 </ul>
                 <div className='lg:hidden cursor-pointer text-3xl' onClick={() => setOpen(!open)}>
                     {open ?

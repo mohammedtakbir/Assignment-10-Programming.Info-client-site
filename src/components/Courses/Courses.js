@@ -18,7 +18,7 @@ const Courses = () => {
     }
 
     return (
-        <div className='mt-10 container mx-auto'>
+        <div className='mt-10 max-w-[1400px] mx-auto'>
             <h2 className='md:text-3xl text-2xl font-medium md:mb-10 mb-6 sm:mx-0 mx-3'>A broad selection of courses</h2>
             <div className='custom-grid relative'>
                 <div>
